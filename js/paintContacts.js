@@ -76,19 +76,19 @@ function paintContactInfoEditBtn(contacts) {
   return editContainer;
 }
 
-function paintContactInfo(contactInfoElem, contacts, e) {
+function paintContactInfo(contactInfoElem, contacts, contactElem) {
   while (contactInfoElem.firstChild) {
     contactInfoElem.removeChild(contactInfoElem.firstChild);
   }
 
-  if (e.tagName === 'LI') {
+  if (contactElem.tagName === 'LI') {
     if (!document.querySelector('.contacts__name--selected')) {
-      e.classList.add('contacts__name--selected');
+      contactElem.classList.add('contacts__name--selected');
     } else {
       document.querySelector('.contacts__name--selected').classList.remove('contacts__name--selected');
-      e.classList.add('contacts__name--selected');
+      contactElem.classList.add('contacts__name--selected');
     }
-    const contactId = parseInt(e.getAttribute('data-id'));
+    const contactId = parseInt(contactElem.getAttribute('data-id'));
     const contact = contacts.find((elem) => elem.id === contactId);
     const contactHeader = paintContactInfoHeader(contact);
     const contactDetails = paintContactInfoDetails(contact);
@@ -105,25 +105,29 @@ function paintContactInfo(contactInfoElem, contacts, e) {
 // PAINT CONTACT LIST
 // -----------------------------------------------------
 
-function paintContactListLiElem(contact) {
+function paintContactListLiElem(contactInfoElem, contact) {
   const liElem = document.createElement('li');
   liElem.className = 'contacts__name';
   liElem.textContent = `${contact.name} ${contact.surname}`;
   liElem.setAttribute('data-id', contact.id);
-  liElem.addEventListener('click', paintContactInfo.bind(liElem, contactInfoElem, contacts, liElem));
+  liElem.addEventListener('click', (e) => {
+    paintContactInfo(contactInfoElem, contacts, liElem);
+  }, { once: true });
   return liElem;
 }
 
-function paintContactListDeleteBtn() {
+function paintContactListDeleteBtn(contactListElem, contactInfoElem, contacts) {
   const deleteBtn = document.createElement('button');
   deleteBtn.className = 'contacts__delete';
   deleteBtn.textContent = '\u00D7';
   deleteBtn.setAttribute('id', 'deleteBtn');
-  deleteBtn.addEventListener('click', deleteContact.bind(deleteBtn, contactListElem, contactInfoElem, contacts), { once: true });
+  deleteBtn.addEventListener('click', (e) => {
+    deleteContact(contactListElem, contactInfoElem, contacts, e);
+  }, { once: true });
   return deleteBtn;
 }
 
-function paintContactList(contactListElem, contacts) {
+function paintContactList(contactListElem, contactInfoElem, contacts) {
   while (contactListElem.firstChild) {
     contactListElem.removeChild(contactListElem.firstChild);
   }
@@ -131,8 +135,8 @@ function paintContactList(contactListElem, contacts) {
   contacts.forEach((contact, idx) => {
     contact.id = idx;
     if (contact.visible === true) {
-      const liElem = paintContactListLiElem(contact);
-      const deleteBtn = paintContactListDeleteBtn();
+      const liElem = paintContactListLiElem(contactInfoElem, contact);
+      const deleteBtn = paintContactListDeleteBtn(contactListElem, contactInfoElem, contacts);
       liElem.appendChild(deleteBtn);
       contactListElem.appendChild(liElem);
     }

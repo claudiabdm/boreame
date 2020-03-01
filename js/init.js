@@ -16,15 +16,15 @@ menuFilter.addEventListener('click', (e) => {
   const classArr = Array.from(e.target.classList);
   if (classArr.indexOf('sidebar__elem') > -1) {
     const filter = e.target.id;
-    filterContacts(contactListElem, contacts, filter);
-    paintContactList(contactListElem, contacts);
+    filterContacts(contactListElem, contactInfoElem, contacts, filter);
+    paintContactList(contactListElem, contactInfoElem, contacts);
   }
 });
 
 // --- Filter by text --- //
 const searchInput = document.getElementById('search');
 searchInput.addEventListener('keyup', (e) => {
-  searchContact(contactListElem, contacts, e);
+  searchContact(contactListElem, contactInfoElem, contacts, e);
 });
 
 
@@ -76,5 +76,5 @@ document.addEventListener('DOMContentLoaded', () => {
     elem.visible = true;
     elem.color = randomColor;
   });
-  paintContactList(contactListElem, contacts);
+  paintContactList(contactListElem, contactInfoElem, contacts);
 }, false);

@@ -24,7 +24,7 @@ function addContactToList(contactListElem, contactInfoElem, contacts) {
   contacts.push(contact);
   contacts.forEach((elem) => elem.visible = true);
 
-  paintContactList(contactListElem, contacts);
+  paintContactList(contactListElem, contactInfoElem, contacts);
   paintContactInfo(contactInfoElem, contacts, document.querySelector(`[data-id="${contact.id}"]`));
 }
 
@@ -32,7 +32,7 @@ function addContactToList(contactListElem, contactInfoElem, contacts) {
 // -----------------------------------------------------
 
 function updateContactInList(contactListElem, contactInfoElem, contacts) {
-  const contactId = parseInt(document.getElementById('contactInfo').getAttribute('data-id'));
+  const contactId = parseInt(contactInfoElem.getAttribute('data-id'));
   const contact = contacts.find((elem) => elem.id === contactId);
   const name = document.getElementById('name');
   const surname = document.getElementById('surname');
@@ -48,7 +48,7 @@ function updateContactInList(contactListElem, contactInfoElem, contacts) {
   contact.phone = phone.value;
   contact.group = group.value;
 
-  paintContactList(contactListElem, contacts);
+  paintContactList(contactListElem, contactInfoElem, contacts);
   paintContactInfo(contactInfoElem, contacts, document.querySelector(`[data-id="${contact.id}"]`));
 }
 
@@ -57,9 +57,8 @@ function updateContactInList(contactListElem, contactInfoElem, contacts) {
 // -----------------------------------------------------
 
 function deleteContact(contactListElem, contactInfoElem, contacts, e) {
-  const contactId = parseInt(e.target.parentElement.getAttribute('data-id'));
+  const contactId = parseInt(e.currentTarget.parentElement.getAttribute('data-id'));
   const contactIdx = contacts.findIndex((elem) => elem.id === contactId);
   contacts.splice(contactIdx, 1);
-  paintContactList(contactListElem, contacts);
-  paintContactInfo(contactInfoElem, contacts, e);
+  paintContactList(contactListElem, contactInfoElem, contacts);
 }

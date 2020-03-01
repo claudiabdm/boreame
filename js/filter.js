@@ -17,10 +17,10 @@ function sortAZ(a, b) {
 
 // FILTER  CONTACTS BY GROUP
 // -----------------------------------------------------
-function filterContacts(contactListElem, contacts, filter) {
+function filterContacts(contactListElem, contactInfoElem, contacts, filter) {
   if (filter === 'allContacts') {
     contacts.forEach((elem) => elem.visible = true);
-    paintContactList(contactListElem, contacts);
+    paintContactList(contactListElem, contactInfoElem, contacts);
   } else {
     contacts.forEach((elem) => {
       if (elem.group === filter) {
@@ -34,7 +34,7 @@ function filterContacts(contactListElem, contacts, filter) {
 
 // FILTER CONTACTS BY TEXT INPUT
 // -----------------------------------------------------
-function searchContact(contactListElem, contacts, e) {
+function searchContact(contactListElem, contactInfoElem, contacts, e) {
   const inputText = e.currentTarget.value;
   contacts.forEach((elem) => {
     const fullName = `${elem.name} ${elem.surname}`;
@@ -46,5 +46,5 @@ function searchContact(contactListElem, contacts, e) {
     }
   });
 
-  paintContactList(contactListElem, contacts);
+  paintContactList(contactListElem, contactInfoElem, contacts);
 }

@@ -1,0 +1,24 @@
+// CORE                         //
+// ---------------------------- //
+@import "mixin/mixins";
+@import "global/variables";
+@import "global/reset";
+@import "global/base";
+@import "global/grid";
+@import "global/container";
+
+
+// ICONTS & FONTS               //
+// ---------------------------- //
+@import "global/icon";
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans:300,400,500,600,700&display=swap');
+
+// COMPONENTS                   //
+// ---------------------------- //
+@import "component/sidebar";
+@import "component/search";
+@import "component/contacts";
+@import "component/contact";
+@import "component/button";
+@import "component/modal";
+@import "component/form";

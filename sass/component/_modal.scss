@@ -1,0 +1,63 @@
+/*------------------------------*/
+/* MODAL                        */
+/* ---------------------------- */
+
+.modal {
+  @include fixed(0, 0, 0, 0);
+
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: opacity 0.25s ease-out, visibility 0.35s;
+  z-index: 1000;
+  visibility: hidden;
+
+  // MODAL CONTAINER
+  // ----------------------------- 
+  &__container {
+    @include fixed(0, 0, 0, auto);
+    @include flex($flex-direction: column);
+    @include size(rem(335px), 100vh);
+
+    background-color: #fff;
+    transform: translate3d(100%, 0, 0);
+    transition: transform 0.35s ease-out;
+    overflow-y: auto;
+
+    // Modal show container
+    // ------------------------
+    .modal--show & {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  // MODAL HEADER
+  // ----------------------------- 
+  &__header {
+    width: 100%;
+    padding: 28px 24px 21px;
+    font-size: rem(19px);
+    font-weight: $font-weight-bold;
+    line-height: rem(24px);
+  }
+
+  // MODAL BODY
+  // ----------------------------- 
+  &__body {
+    @include size(100%);
+  }
+
+  // MODAL BUTTONS
+  // ----------------------------- 
+  &__buttons {
+    @include flex(column, flex-start, space-between);
+    @include size(100%);
+    padding-left: 24px;
+  }
+
+}
+
+//--- Modal Show ---//
+.modal--show {
+  opacity: 1;
+  visibility: visible;
+}

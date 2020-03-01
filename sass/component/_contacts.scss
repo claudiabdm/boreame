@@ -1,0 +1,56 @@
+// ---------------------------- //
+// CONTACT LIST                 //
+// ---------------------------- //
+
+.contacts {
+  @include size(auto, 100vh);
+  padding: $padding-top 0;
+  font-size: 1rem;
+  border-right: $border;
+  overflow-y: auto;
+
+  &__search {
+    margin: 0 18px;
+  }
+
+  &__list {
+    width: 100%;
+    margin: 27px 0;
+  }
+
+  &__name {
+    @include flex(row, center, space-between);
+    position: relative;
+    padding: 0 12px 0 18px;
+    line-height: rem(32px);
+
+    &--selected {
+      background-color: $grey-300;
+    }
+
+    &:hover {
+      color: $grey-800;
+      font-weight: $font-weight-bold;
+    }
+  }
+
+  &__delete {
+    opacity: 0;
+    @include flex(column, center, center);
+    @include size(rem(22px));
+    margin-left: auto;
+    border-radius: 100%;
+    border: 2px solid #fff;
+    color: $grey-700;
+    background-color: $grey-300;
+    font-size: 1rem;
+    font-weight: $font-weight-light;
+    line-height: 0;
+
+    .contacts__name:hover & {
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+
+}

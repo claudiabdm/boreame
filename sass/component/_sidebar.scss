@@ -1,0 +1,35 @@
+// ---------------------------- //
+// SIDEBAR                      //
+// ---------------------------- //
+
+.sidebar {
+  // @include relative(0, auto, 0, 0);
+  @include flex($flex-direction:column);
+  @include size(auto, 100vh);
+
+  padding: $padding-top 0;
+  background-color: $primary;
+  color: #fff;
+
+  &__section {
+    width: 100%;
+    margin-bottom: rem(16px);
+  }
+
+  &__elem{
+    display: block;
+    padding: 8px 16px;
+    width: 100%;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+
+    &:focus {
+      background-color: #fff;
+      color: $grey-700;
+    }
+
+  }
+
+}

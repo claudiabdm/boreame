@@ -1,0 +1,74 @@
+// ---------------------------- //
+// BUTTON                       //
+// ---------------------------- //
+
+:root {
+  --button-height: rem(42px);
+  --buttom-padding: 11px 24px;
+  --button-font-size: 1rem;
+  --button-line-height: rem(20px);
+  --button-bgcolor: #{$grey-200};
+  --button-hover: #{darken($grey-200, 5%)}; 
+}
+
+.btn {
+  @include flex();
+  @include size(auto,var(--button-height));
+  border: 0;
+  border-radius: $border-radius;
+  padding: var(--buttom-padding);
+  color: $grey-700;
+  background-color: var(--button-bgcolor);
+  font-size: var(--button-font-size);
+  font-family: $font-family-primary;
+  font-weight: $font-weight-semi-bold;
+  text-align: center;
+  line-height: var(--button-line-height);
+  cursor: pointer;
+  transition: $transition;
+
+  &:hover {
+    background-color: var(--button-hover);
+  }
+
+}
+
+// --- Sizes --- //
+.btn--sm {
+  --button-height: rem(28px);
+  --buttom-padding: 5px 11px;
+  --button-font-size: rem(14px);
+  --button-line-height: rem(17px);
+  font-weight: $font-weight-medium;
+}
+
+// --- States and Actions --- //
+.btn--default {
+  color: #fff;
+  --button-bgcolor: #{$default}; 
+  --button-hover: #{darken($default, 5%)}; 
+}
+
+.btn--success {
+  color: #fff;
+  --button-bgcolor: #{$success};
+  --button-hover: #{darken($success, 5%)}; 
+}
+
+.btn--close {
+  @include size(rem(42px));
+  padding: 11.5px;
+  
+  & svg {
+    transform: rotate(45deg);
+    line-height: 0;
+  }
+}
+
+// --- Position --- //
+.btn--right {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  padding: 11.5px;
+}

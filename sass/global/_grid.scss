@@ -1,0 +1,9 @@
+//------------------------------//
+// GRID                         //
+// ---------------------------- //
+
+.grid {
+  display: grid;
+  grid-template-columns: rem(250px) auto;
+  height: 100vh;
+}

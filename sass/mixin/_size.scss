@@ -1,0 +1,7 @@
+// ---------------------------- //
+// SIZE MIXIN                   //
+// ---------------------------- //
+@mixin size($width:auto, $height:$width){
+  width: $width;
+  height: $height;
+}

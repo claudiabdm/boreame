@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda de contactos</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+  <div class="grid">
+
+
+    <header>
+      <!-- Sidebar -->
+      <nav class="sidebar" id="menuFilter">
+        <section class="sidebar__section">
+          <a class="sidebar__elem" href="#contacts" id="allContacts">Todos los contactos</a>
+        </section>
+
+        <section class="sidebar__section">
+          <a class="sidebar__elem" href="#fav" id="favoritos">Favoritos</a>
+        </section>
+
+        <section class="sidebar__section">
+          <h2 hidden="true">Groups</h2>
+          <a class="sidebar__elem" href="#friends" id="amigos">Amigos</a>
+          <a class="sidebar__elem" href="#family" id="familia">Familia</a>
+          <a class="sidebar__elem" href="#work" id="trabajo">Trabajo</a>
+        </section>
+
+      </nav>
+      <!-- // Sidebar -->
+    </header>
+
+    <main class="grid">
+
+      <!-- Contact List -->
+      <section class="contacts">
+        <h2 hidden="true">Contact List</h2>
+        <div class="contacts__search search">
+          <label for="search" hidden="true">Search</label>
+          <input class="search__input" type="search" id="search" placeholder="Buscar">
+          <div class="search__icon icon icon--search">
+            <svg width='18px' height='16px' viewBox='0 0 18 16' version='1.1' xmlns='http://www.w3.org/2000/svg'
+              xmlns:xlink='http://www.w3.org/1999/xlink'>
+              <title>zoom</title>
+              <desc>Created with Sketch.</desc>
+              <g stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'>
+                <g transform='translate(-279.000000, -34.000000)' fill='#000' fill-rule='nonzero'>
+                  <g id='zoom' transform='translate(279.000000, 34.000000)'>
+                    <path
+                      d='M16.9419142,15.1819573 L16.4398798,15.647311 C15.9360961,16.117563 15.1191969,16.117563 14.6154133,15.647311 L11.4580192,12.7049699 C10.324506,13.3662619 8.98458139,13.7499745 7.54844813,13.7499745 C3.47794618,13.7499745 0.177113703,10.6721094 0.177113703,6.87580365 C0.177113703,3.07949791 3.47794618,0 7.55019738,0 C11.6224486,0 14.9232811,3.07949791 14.9232811,6.87580365 C14.9232811,8.22124707 14.5069598,9.48015104 13.7897678,10.539851 L16.9436634,13.4805592 C17.4456978,13.9491785 17.4456978,14.7117053 16.9419142,15.1819573 Z M7.55019738,1.90223492 C4.60621165,1.90223492 2.21848705,4.12776814 2.21848705,6.87580365 C2.21848705,9.62057353 4.60621165,11.8477396 7.55019738,11.8477396 C10.4959324,11.8477396 12.8819077,9.62057353 12.8819077,6.87580365 C12.8819077,4.12940096 10.4941831,1.90223492 7.55019738,1.90223492 Z'>
+                    </path>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <ol class="contacts__list" id="contactList">
+        </ol>
+      </section>
+      <!-- // Contact List -->
+
+
+      <!-- Contact Information -->
+      <section class="contact" id="contactInfo">
+        <h2 hidden="true">Contact Information</h2>
+      </section>
+      <!-- // Contact Information -->
+
+      <button class="btn btn--right btn--success" type="button" id="newContactModalBtn">
+        <svg class="icon icon--plus" width="19px" height="20px" viewBox="0 0 19 20" version="1.1"
+          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <title>plus</title>
+          <desc>Created with Sketch.</desc>
+          <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g transform="translate(-1245.000000, -746.000000)" fill="#000" fill-rule="nonzero">
+              <g id="Groupsvg" transform="translate(1232.000000, 735.000000)">
+                <polygon id="plus"
+                  points="23.7539062 19.5507812 31.8007812 19.5507812 31.8007812 22.2460938 23.7539062 22.2460938 23.7539062 30.5664062 21.0390625 30.5664062 21.0390625 22.2460938 13.03125 22.2460938 13.03125 19.5507812 21.0390625 19.5507812 21.0390625 11.1914062 23.7539062 11.1914062">
+                </polygon>
+              </g>
+            </g>
+          </g>
+        </svg>
+      
+      </button>
+
+      <!-- Modal Contact -->
+      <div class="modal" id="contactModal">
+        <div class="modal__container">
+
+          <header class="modal__header">
+            <h3 class="modal__title">
+              </h3>
+          </header>
+
+
+          <div class="modal__body">
+
+            <form class="form" id="form">
+
+              <div class="form__section">
+                <div class="form__group">
+                  <label for="name" class="form__label">Nombre</label>
+                  <input id="name" type="text" class="form__control">
+                </div>
+                <div class="form__group">
+                  <label for="surname" class="form__label">Apellidos</label>
+                  <input id="surname" type="text" class="form__control">
+                </div>
+              </div>
+
+              <div class="form__group form__group--important">
+                <label for="email" class="form__label">Email</label>
+                <input id="email" type="email" class="form__control">
+              </div>
+
+              <div class="form__group form__group--important form__group--grid">
+                <label for="phone" class="form__label">Teléfono</label>
+                <label for="prefix" class="form__label" hidden>Prefix</label>
+                <select class="form__control form__control--select" id="prefix">
+                  <option selected>País...</option>
+                  <option value="españa">España</option>
+                </select>
+                <input id="phone" type="tel" class="form__control">
+              </div>
+
+              <div class="form__group">
+                <label for="group" class="form__label">Group</label>
+                <select class="form__control form__control--select" id="group">
+                  <option selected>Selecionar...</option>
+                  <option value="favoritos">Favorito</option>
+                  <option value="amigos">Amigo</option>
+                  <option value="familia">Familia</option>
+                  <option value="trabajo">Trabajo</option>
+                </select>
+              </div>
+
+              <div class="modal__buttons container">
+                <button class="btn btn--close modal__close" type="button" id="closeBtn">
+                  <svg class="icon icon--close" width="19px" height="20px" viewBox="0 0 19 20" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                      <g transform="translate(-1245.000000, -746.000000)" fill="#000"
+                        fill-rule="nonzero">
+                        <g id="Groupsvg2" transform="translate(1232.000000, 735.000000)">
+                          <polygon id="plusicon"
+                            points="23.7539062 19.5507812 31.8007812 19.5507812 31.8007812 22.2460938 23.7539062 22.2460938 23.7539062 30.5664062 21.0390625 30.5664062 21.0390625 22.2460938 13.03125 22.2460938 13.03125 19.5507812 21.0390625 19.5507812 21.0390625 11.1914062 23.7539062 11.1914062">
+                          </polygon>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                </button>
+              </div>
+            </form>
+
+          </div>
+
+        </div>
+      </div>
+      <!-- // Modal Contact -->
+
+    </main>
+
+  </div>
+  <script src="../js/main.js"></script>
+  <script src="../js/filter.js"></script>
+  <script src="../js/modifyContactList.js"></script>
+  <script src="../js/paintContacts.js"></script>
+  <script src="../js/toggleModal.js"></script>
+  <script src="../js/init.js"></script>
+</body>
+
+</html>

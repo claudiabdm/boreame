@@ -1,0 +1,68 @@
+// ---------------------------- //
+// VARIABLES                    //
+// ---------------------------- //
+
+// Color palette
+// -----------------------------------------
+
+// Colors
+$primary:  #5d6e6a;
+
+// Grey
+$grey-100:  #f8f8f8;
+$grey-200:  #eee;
+$grey-300:  #ebf0ef;
+$grey-400:  #dadada;
+$grey-500:  #aaa;
+$grey-600:  #999;
+$grey-700:  #4a4a4a;
+$grey-800:  #333;
+
+// States
+$default:  #0cb7f5;
+$success:  #0bd4a4;
+
+// Palette
+$palette: (
+#d0021b,
+#02b4d0,
+#5502d0,
+#024bd0,
+#c702d0,
+#02d0ab,
+#47d002,
+#c9d002,
+#d09202
+);
+
+
+// Scaffolding
+// ------------------------------------------
+$body-color:   #000;
+$body-bg:      #fff;
+
+$link-color:        #fff;
+$link-decoration:     none;
+$link-hover:          none; 
+
+$padding-top: 23px;
+
+$border: 1px solid $grey-400;
+$border-radius: 4px;
+
+$transition: all 0.2s ease-in-out;
+// Font
+// ------------------------------------------
+
+$font-primary:   "Encode Sans";
+$font-family-primary: $font-primary, Arial, sans-serif;
+
+$font-size-body: 16px;
+$font-size-base: rem($font-size-body);
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+

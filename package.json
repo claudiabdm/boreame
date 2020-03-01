@@ -1,0 +1,28 @@
+{
+  "name": "reto-programacion",
+  "version": "1.0.0",
+  "description": "Reto individual",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/claudiabdm/reto-programacion.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/claudiabdm/reto-programacion/issues"
+  },
+  "homepage": "https://github.com/claudiabdm/reto-programacion#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "jquery": "^3.4.1",
+    "jsdom": "^16.2.0",
+    "node-sass": "^4.11.0"
+  }
+}

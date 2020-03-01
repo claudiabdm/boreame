@@ -1,0 +1,83 @@
+// ---------------------------- //
+// CONTACT                      //
+// ---------------------------- //
+:root{
+  --random-color: nth($palette, 0); // by default
+}
+
+.contact {
+  @include flex (column, stretch, stretch);
+  @include size (100%, 100vh);
+
+  // CONTACT HEADER
+  // -----------------------------
+  &__header {
+    @include flex($align-items: center);
+    border-bottom: $border;
+    padding: 38px 47px;
+  }
+
+  &__img {
+    @include flex(row, center, center);
+    @include size(rem(68px));
+
+    margin-right: 26px;
+
+    // $random: random(length($palette));
+    // background-color: nth($palette, $random);
+    background-color: var(--random-color);
+    border-radius: 100%;
+  }
+
+  &__initial {
+    @include flex(row, center, center);
+    @include size (rem(25px), rem(55px));
+    color: #fff;
+    font-size: rem(44px);
+    font-weight: $font-weight-light;
+    line-height: 0;
+  }
+
+  &__name {
+    color: $grey-700;
+    font-size: rem(33px);
+    font-weight: $font-weight-light;
+    line-height: rem(41px);
+  }
+
+  &__group {
+    color: $grey-600;
+    font-size: rem(14px);
+    font-weight: $font-weight-regular;
+    line-height: rem(17px);
+  }
+
+  // CONTACT INFO
+  // -----------------------------
+
+
+  &__item {
+    @include flex($align-items: center);
+    color: #000;
+    line-height: rem(20px);
+
+    & + & {
+      margin-top: 34px;
+    }
+  }
+
+  &__icon {
+    margin-right: 18px;
+  }
+
+  // BUTTONS SECTIONS
+  // -----------------------------
+  &__actions {
+    @include flex(column, flex-start, space-between);
+    height: 100%;
+  }
+}
+
+.contact--hide {
+  display: none;
+}

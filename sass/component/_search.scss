@@ -1,0 +1,22 @@
+// ---------------------------- //
+// SEARCH                       //
+// ---------------------------- //
+
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &__input {
+    @include size(100%, rem(37px));
+    border: $border;
+    border-radius: rem(18.5px);
+    padding: 9px 17px 9px 14px;
+  }
+
+  &__icon {
+    position: absolute;
+    right: rem(14px);
+  }
+    
+}

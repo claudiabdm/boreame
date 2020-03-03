@@ -15,10 +15,26 @@ function sortAZ(a, b) {
   }
 }
 
+// ADD CLASS TO SELECTED FILTER
+// -----------------------------------------------------
+
+function selectedFilter(filter) {
+  const prevFilter = document.querySelector('.sidebar__elem--selected');
+  const currFilter = document.getElementById(filter);
+  if (!prevFilter) {
+    currFilter.classList.add('sidebar__elem--selected');
+  } else {
+    prevFilter.classList.remove('sidebar__elem--selected');
+    currFilter.classList.add('sidebar__elem--selected');
+  }
+}
+
+
 // FILTER  CONTACTS BY GROUP
 // -----------------------------------------------------
 function filterContacts(contactListElem, contactInfoElem, contacts, filter) {
-  if (filter === 'allContacts') {
+  selectedFilter(filter);
+  if (filter === 'allContacts' || !filter) {
     contacts.forEach((elem) => elem.visible = true);
     paintContactList(contactListElem, contactInfoElem, contacts);
   } else {

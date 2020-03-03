@@ -14,7 +14,7 @@ function closeModal(e) {
 // CREATE MODAL
 // -----------------------------------------------------
 
-function createModal(modalObj, contacts, contact) {
+function modifyModal(modalObj, contacts, contact) {
   const title = contactModal.querySelector('.modal__title');
   const buttons = document.querySelector('.modal__buttons');
   const button = document.createElement('button');
@@ -67,7 +67,7 @@ function openModal(contacts, e) {
   const contactId = parseInt(target.parentElement.parentElement.getAttribute('data-id'));
   const contact = contacts.find((elem) => elem.id === contactId);
   const modalObj = /edit/.test(target.id) ? editModal : addModal;
-  createModal(modalObj, contacts, contact);
+  modifyModal(modalObj, contacts, contact);
   contactModal.classList.add('modal--show');
 }
 

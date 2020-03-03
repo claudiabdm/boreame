@@ -22,8 +22,8 @@ function addContactToList(contactListElem, contactInfoElem, contacts) {
   };
 
   contacts.push(contact);
-  contacts.forEach((elem) => elem.visible = true);
 
+  filterContacts(contactListElem, contactInfoElem, contacts, contact.group);
   paintContactList(contactListElem, contactInfoElem, contacts);
   paintContactInfo(contactInfoElem, contacts, document.querySelector(`[data-id="${contact.id}"]`));
 }
@@ -48,6 +48,7 @@ function updateContactInList(contactListElem, contactInfoElem, contacts) {
   contact.phone = phone.value;
   contact.group = group.value;
 
+  filterContacts(contactListElem, contactInfoElem, contacts, contact.group);
   paintContactList(contactListElem, contactInfoElem, contacts);
   paintContactInfo(contactInfoElem, contacts, document.querySelector(`[data-id="${contact.id}"]`));
 }

@@ -15,17 +15,7 @@ const menuFilter = document.getElementById('menuFilter');
 menuFilter.addEventListener('click', (e) => {
   const classArr = Array.from(e.target.classList);
   if (classArr.indexOf('sidebar__elem') > -1) {
-    const prevFilter = document.querySelector('.sidebar__elem--selected');
-
-    if (!prevFilter) {
-      e.target.classList.add('sidebar__elem--selected');
-    } else {
-      prevFilter.classList.remove('sidebar__elem--selected');
-      e.target.classList.add('sidebar__elem--selected');
-    }
-
-    const filter = e.target.id;
-    filterContacts(contactListElem, contactInfoElem, contacts, filter);
+    filterContacts(contactListElem, contactInfoElem, contacts, e.target.id);
     paintContactList(contactListElem, contactInfoElem, contacts);
   }
 });

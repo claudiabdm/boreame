@@ -112,7 +112,7 @@ function paintContactListLiElem(contactInfoElem, contact) {
   liElem.setAttribute('data-id', contact.id);
   liElem.addEventListener('click', (e) => {
     paintContactInfo(contactInfoElem, contacts, liElem);
-  }, { once: true });
+  });
   return liElem;
 }
 

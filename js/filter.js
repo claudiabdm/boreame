@@ -20,7 +20,7 @@ function sortAZ(a, b) {
 
 function selectedFilter(filter) {
   const prevFilter = document.querySelector('.sidebar__elem--selected');
-  const currFilter = document.getElementById(filter);
+  const currFilter = filter ? document.getElementById(filter) : document.getElementById('allContacts');
   if (!prevFilter) {
     currFilter.classList.add('sidebar__elem--selected');
   } else {

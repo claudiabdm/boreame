@@ -23,7 +23,8 @@ menuFilter.addEventListener('click', (e) => {
 // --- Filter by text --- //
 const searchInput = document.getElementById('search');
 searchInput.addEventListener('keyup', (e) => {
-  searchContact(contactListElem, contactInfoElem, contacts, e);
+  const currFilter = document.querySelector('.sidebar__elem--selected');
+  searchContact(contactListElem, contactInfoElem, contacts, currFilter.id, e);
 });
 
 

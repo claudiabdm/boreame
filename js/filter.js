@@ -50,17 +50,22 @@ function filterContacts(contactListElem, contactInfoElem, contacts, filter) {
 
 // FILTER CONTACTS BY TEXT INPUT
 // -----------------------------------------------------
-function searchContact(contactListElem, contactInfoElem, contacts, e) {
+function searchContact(contactListElem, contactInfoElem, contacts, filter, e) {
+
   const inputText = e.currentTarget.value;
   contacts.forEach((elem) => {
     const fullName = `${elem.name} ${elem.surname}`;
     const regex = new RegExp(`${inputText}`, 'gi');
     if (regex.test(fullName)) {
       elem.visible = true;
+      if (elem.group === filter || filter === 'allContacts') {
+        elem.visible = true;
+      } else {
+        elem.visible = false;
+      }
     } else {
       elem.visible = false;
     }
   });
-
   paintContactList(contactListElem, contactInfoElem, contacts);
 }

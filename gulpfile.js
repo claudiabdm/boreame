@@ -16,7 +16,6 @@ gulp.task('sass', function () {
   return gulp.src('./sass/**/*.scss')
   .pipe(sourcemaps.init())
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-    .pipe(sourcemaps.write('../../sass/sourcemap/'))
     .pipe(gulp.dest('./dist/assets/css'));
 });
 

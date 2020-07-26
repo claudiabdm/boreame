@@ -3,6 +3,8 @@
 # abort on errors
 set -e
 
+cd dist
+
 git init
 git add -A
 git commit -m 'deploy'

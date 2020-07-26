@@ -17,7 +17,7 @@ gulp.task('sass', function () {
   .pipe(sourcemaps.init())
     .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
     .pipe(sourcemaps.write('../../sass/sourcemap/'))
-    .pipe(gulp.dest('./assets/css'));
+    .pipe(gulp.dest('./dist/assets/css'));
 });
 
 // Vigilar si hay algún cambio en los SCSS

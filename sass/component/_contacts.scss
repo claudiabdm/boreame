@@ -29,6 +29,7 @@
     }
 
     &:hover {
+      cursor: pointer;
       color: $grey-800;
       font-weight: $font-weight-bold;
     }
